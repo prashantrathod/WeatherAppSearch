@@ -1,0 +1,31 @@
+<h1>The Weather is:</h1>
+
+<ul>
+     <%console.log(data.query.results.channel.location)%>
+    <li>
+        <strong>
+            <% console.log(data.query.results.channel.location)%> 
+            <%= data.query.results.channel.location["city"] %>
+        </strong>
+            <% console.log(data.query.results.channel.item.condition["temp"])%> 
+        -   <%= data.query.results.channel.item.condition["temp"]%>
+    </li>
+</ul>
+
+<ul>
+        <% console.log(data.query.results.channel.item.forecast)%>
+        <% data.query.results.channel.item.forecast.forEach(function(weather){ %>
+         <li>
+            <% console.log(weather["day"]) %> 
+            <%= weather["day"] %>
+            <%= weather["date"] %>
+             - High: <%= weather["high"] %>
+             - Low: <%= weather["low"] %>
+             - <%= weather["text"] %>
+        </li>
+            
+        <% }) %>
+</ul>
+
+
+<a href="/">Search Again!</a>
